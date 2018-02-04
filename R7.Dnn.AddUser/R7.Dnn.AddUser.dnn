@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<dotnetnuke type="Package" version="5.0">
+    <packages>
+        <package name="R7.Dnn.AddUser" type="Module" version="00.01.00">
+            <friendlyName>R7.Dnn.AddUser</friendlyName>
+            <description>Module which allow non-admins to create new users.</description>
+            <owner>
+                <name>Roman M. Yagodin</name>
+                <organization>R7.Labs</organization>
+                <url>https://github.com/volgau/R7.Dnn.AddUser</url>
+                <email>roman.yagodin@gmail.com</email>
+            </owner>
+            <license src="license.htm" />
+            <releaseNotes src="releaseNotes.htm" />
+            <dependencies>
+                <dependency type="coreVersion">08.00.00</dependency>
+                <dependency type="managedPackage" version="0.12.0">R7.Dnn.Extensions</dependency>
+            </dependencies>
+            <components>
+                <component type="Module">
+                    <desktopModule>
+                        <moduleName>R7.Dnn.AddUser</moduleName>
+                        <foldername>R7.Dnn.AddUser/R7.Dnn.AddUser</foldername>
+                        <businessControllerClass>R7.Dnn.AddUser.Components.AddUserController</businessControllerClass>
+                        <supportedFeatures />
+                        <moduleDefinitions>
+                            <moduleDefinition>
+                                <friendlyName>R7.Dnn.AddUser</friendlyName>
+                                <definitionName>R7_Dnn_AddUser</definitionName>
+                                <defaultCacheTime>0</defaultCacheTime>
+                                <moduleControls>
+                                    <moduleControl>
+                                        <controlKey />
+                                        <controlSrc>DesktopModules/R7.Dnn.AddUser/R7.Dnn.AddUser/ViewAddUser.ascx</controlSrc>
+                                        <controlTitle />
+                                        <controlType>View</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <supportsPartialRendering>True</supportsPartialRendering>
+                                        <supportsPopUps>False</supportsPopUps>
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                    <moduleControl>
+                                        <controlKey>AddUser</controlKey>
+                                        <controlSrc>DesktopModules/R7.Dnn.AddUser/R7.Dnn.AddUser/AddUser.ascx</controlSrc>
+                                        <controlTitle>Add User</controlTitle>
+                                        <controlType>Edit</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <supportsPartialRendering>True</supportsPartialRendering>
+                                        <supportsPopUps>True</supportsPopUps>
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                    <moduleControl>
+                                        <controlKey>Settings</controlKey>
+                                        <controlSrc>DesktopModules/R7.Dnn.AddUser/R7.Dnn.AddUser/EditAddUserSettings.ascx</controlSrc>
+                                        <controlTitle>Settings</controlTitle>
+                                        <controlType>Edit</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <supportsPopUps>False</supportsPopUps>
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                </moduleControls>
+                            </moduleDefinition>
+                        </moduleDefinitions>
+                    </desktopModule>
+                </component>
+                <component type="ResourceFile">
+                    <resourceFiles>
+                        <basePath>DesktopModules\R7.Dnn.AddUser</basePath>
+                        <resourceFile>
+                            <name>Resources.zip</name>
+                        </resourceFile>
+                    </resourceFiles>
+                </component>
+                <component type="Assembly">
+                    <assemblies>
+                        <basePath>bin</basePath>
+                        <assembly>
+                            <path>bin</path>
+                            <name>R7.Dnn.AddUser.dll</name>
+                        </assembly>
+                    </assemblies>
+                </component>
+            </components>
+        </package>
+    </packages>
+</dotnetnuke>
