@@ -29,6 +29,7 @@ using DotNetNuke.Entities.Icons;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Entities.Modules.Actions;
 using DotNetNuke.Security;
+using DotNetNuke.Security.Permissions;
 using DotNetNuke.Services.Exceptions;
 using R7.Dnn.AddUser.Models;
 using R7.DotNetNuke.Extensions.Modules;
@@ -37,18 +38,14 @@ namespace R7.Dnn.AddUser
 {
     public class ViewAddUser: PortalModuleBase<AddUserSettings>, IActionable
     {
-        #region Controls
-
-        #endregion
-
         protected override void OnLoad (EventArgs e)
         {
             base.OnLoad (e);
 
             try {
-                if (!IsPostBack) {
-                }
-            } catch (Exception ex) {
+                ContainerControl.Visible = ModulePermissionController.CanEditModuleContent (ModuleConfiguration);
+            }
+            catch (Exception ex) {
                 Exceptions.ProcessModuleLoadException (this, ex);
             }
         }
