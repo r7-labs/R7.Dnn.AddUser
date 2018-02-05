@@ -1,8 +1,5 @@
 ﻿//
-// AddUserSettings.cs
-//
-// Author:
-//       Roman M. Yagodin <roman.yagodin@gmail.com>
+// AddUserResult.cs
 //
 // Copyright (c) 2018 Volgograd State Agricultural University
 //
@@ -24,16 +21,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using DotNetNuke.Entities.Modules.Settings;
+using System;
+using DotNetNuke.Security.Membership;
 
 namespace R7.Dnn.AddUser.Models
 {
-    /// <summary>
-    /// Provides strong typed access to settings used by module
-    /// </summary>
-    public class AddUserSettings
+    class AddUserResult
     {
-        [ModuleSetting (Prefix = "AddUser_")]
-        public string DisplayNameFormat { get; set; } = "FirstName OtherName LastName";
+        public UserCreateStatus UserCreateStatus { get; set; }
+
+        public int UserId { get; set; }
+
+        public string Password { get; set; }
     }
 }

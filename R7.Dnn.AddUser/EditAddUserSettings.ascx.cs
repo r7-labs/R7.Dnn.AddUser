@@ -28,7 +28,7 @@ using System;
 using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using R7.Dnn.AddUser.Models;
-using R7.DotNetNuke.Extensions.Modules;
+using R7.Dnn.Extensions.Modules;
 
 namespace R7.Dnn.AddUser
 {

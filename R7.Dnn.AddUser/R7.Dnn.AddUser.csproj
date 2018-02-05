@@ -51,9 +51,6 @@
     <Reference Include="Telerik.Web.UI">
       <HintPath>..\packages\DotNetNuke.Web.Deprecated.8.0.4.226\lib\net40\Telerik.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="R7.DotNetNuke.Extensions">
-      <HintPath>..\packages\R7.DotNetNuke.Extensions.0.10.0\lib\net45\R7.DotNetNuke.Extensions.dll</HintPath>
-    </Reference>
     <Reference Include="DotNetNuke.Web.Mvc">
       <HintPath>..\packages\DotNetNuke.Web.Mvc.8.0.4.226\lib\net45\DotNetNuke.Web.Mvc.dll</HintPath>
     </Reference>
@@ -113,6 +110,8 @@
     <Compile Include="EditAddUserSettings.ascx.cs">
       <DependentUpon>EditAddUserSettings.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Components\AddUserManager.cs" />
+    <Compile Include="Models\AddUserResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />

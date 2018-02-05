@@ -32,7 +32,7 @@ using DotNetNuke.Security;
 using DotNetNuke.Security.Permissions;
 using DotNetNuke.Services.Exceptions;
 using R7.Dnn.AddUser.Models;
-using R7.DotNetNuke.Extensions.Modules;
+using R7.Dnn.Extensions.Modules;
 
 namespace R7.Dnn.AddUser
 {
