@@ -21,4 +21,43 @@
 	<data name="buttonAddUser.Text" xml:space="preserve">
         <value>Добавить пользователя</value>
     </data>
+	<data name="labelFirstName.Text" xml:space="preserve">
+        <value>Имя:</value>
+    </data>
+    <data name="labelFirstName.Help" xml:space="preserve">
+        <value>Введите имя нового пользователя.</value>
+    </data>
+    <data name="labelLastName.Text" xml:space="preserve">
+        <value>Фамилия:</value>
+    </data>
+    <data name="labelLastName.Help" xml:space="preserve">
+        <value>Введите фамилию нового пользователя.</value>
+    </data>
+    <data name="labelOtherName.Text" xml:space="preserve">
+        <value>Отчество:</value>
+    </data>
+    <data name="labelOtherName.Help" xml:space="preserve">
+        <value>Введите отчество нового пользователя.</value>
+    </data>
+    <data name="labelEmail.Text" xml:space="preserve">
+        <value>Эл. почта:</value>
+    </data>
+    <data name="labelEmail.Help" xml:space="preserve">
+        <value>Введите адрес электронной почты нового пользователя.</value>
+    </data>
+	<data name="labelLogin.Text" xml:space="preserve">
+        <value>Имя входа:</value>
+    </data>
+    <data name="labelLogin.Help" xml:space="preserve">
+        <value>Автоматически сгенерированное имя входа (логин) пользователя.</value>
+    </data>
+    <data name="labelPassword.Text" xml:space="preserve">
+        <value>Пароль:</value>
+    </data>
+    <data name="labelPassword.Help" xml:space="preserve">
+        <value>Автоматически сгенерированный пароль для входа пользователя на сайт.</value>
+    </data>
+	<data name="linkDone.Text" xml:space="preserve">
+        <value>Готово</value>
+    </data>
 </root>
