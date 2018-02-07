@@ -29,6 +29,16 @@
 		Template variables for name parts are &quot;FirstName&quot;, &quot;LastName&quot;, &quot;OtherName&quot;
 		and also &quot;F.&quot;, &quot;L.&quot;, &quot;O.&quot; for first letters only.</value>
     </data>
+	<data name="labelUserNameFormat.Text" xml:space="preserve">
+        <value>Username Format:</value>
+    </data>
+    <data name="labelUserNameFormat.Help" xml:space="preserve">
+        <value>Format of the username generated for user.
+        Template variables for name parts are &quot;FirstName&quot;, &quot;LastName&quot;, &quot;OtherName&quot;, &quot;Email&quot;
+        and also &quot;F.&quot;, &quot;L.&quot;, &quot;O.&quot; for first letters only.
+		Name parts will be transliterated and lowercased,
+		all non-alphanumeric characters will be replaced with underscore.</value>
+    </data>
 	<data name="labelRoles.Text" xml:space="preserve">
         <value>Assign Roles to User:</value>
     </data>

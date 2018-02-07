@@ -23,11 +23,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Security.Membership;
 using DotNetNuke.Security.Roles;
 using DotNetNuke.Services.Exceptions;
 using R7.Dnn.AddUser.Models;
+using Unidecode.NET;
 
 namespace R7.Dnn.AddUser.Components
 {
@@ -35,15 +37,14 @@ namespace R7.Dnn.AddUser.Components
     {
         public AddUserResult AddUser (string firstName, string lastName, string otherName,
                                       AddUserSettings settings,
-                                      string email, int portalId)
+                                      string email, bool useEmailAsUserName, int portalId)
         {
             var user = new UserInfo {
                 FirstName = firstName,
                 LastName = lastName,
                 DisplayName = FormatDisplayName (settings.DisplayNameFormat, firstName, lastName, otherName),
                 Email = email,
-                // TODO: Generate Username?
-                Username = email,
+                Username = FormatUserName (settings.UserNameFormat, firstName, lastName, otherName, email, useEmailAsUserName),
                 PortalID = portalId
             };
 
@@ -81,6 +82,27 @@ namespace R7.Dnn.AddUser.Components
             }
         }
 
+        // TODO: Add tests
+        string FormatUserName (string userNameFormat,
+                               string firstName, string lastName, string otherName,
+                               string email, bool useEmailAsUserName)
+        {
+            if (useEmailAsUserName) {
+                return email;
+            }
+
+            var userName = userNameFormat.Replace ("FirstName", firstName)
+                                         .Replace ("F.", FirstCharOrEmpty (firstName))
+                                         .Replace ("LastName", lastName)
+                                         .Replace ("L.", FirstCharOrEmpty (lastName))
+                                         .Replace ("OtherName", otherName)
+                                         .Replace ("O.", FirstCharOrEmpty (otherName))
+                                         .Replace ("Email", email.Replace ("@", " at "))
+                                         .ToLower ()
+                                         .Unidecode ();
+
+            return Regex.Replace (Regex.Replace (userName, @"[^a-z0-9]", "_"), @"_+", "_").Trim ('_');
+        }
 
         // TODO: Add tests
         string FormatDisplayName (string displayNameFormat, string firstName, string lastName, string otherName)

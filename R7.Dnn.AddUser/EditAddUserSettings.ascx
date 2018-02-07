@@ -11,6 +11,10 @@
 			<asp:TextBox id="textDisplayNameFormat" runat="server" />
 		</div>
 		<div class="dnnFormItem">
+            <dnn:Label id="labelUserNameFormat" runat="server" ControlName="textUserNameFormat" />
+            <asp:TextBox id="textUserNameFormat" runat="server" />
+        </div>
+		<div class="dnnFormItem">
             <dnn:Label id="labelRoles" runat="server" ControlName="textRoles" />
             <asp:TextBox id="textRoles" runat="server" />
         </div>
