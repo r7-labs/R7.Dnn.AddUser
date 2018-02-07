@@ -24,6 +24,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using DotNetNuke.Entities.Modules.Settings;
 
 namespace R7.Dnn.AddUser.Models
@@ -35,5 +38,19 @@ namespace R7.Dnn.AddUser.Models
     {
         [ModuleSetting (Prefix = "AddUser_")]
         public string DisplayNameFormat { get; set; } = "FirstName OtherName LastName";
+
+        [ModuleSetting (Prefix = "AddUser_")]
+        public string DoneUrl { get; set; }
+
+        [ModuleSetting (Prefix = "AddUser_")]
+        public bool DoneUrlOpenInPopup { get; set; }
+
+        [ModuleSetting (Prefix = "AddUser_")]
+        public string Roles { get; set; }
+
+        public IEnumerable<int> RoleIds =>
+            (Roles ?? string.Empty)
+                .Split (";".ToCharArray (), StringSplitOptions.RemoveEmptyEntries)
+                .Select (strRoleId => int.Parse (strRoleId));
     }
 }

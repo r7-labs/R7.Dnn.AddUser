@@ -25,19 +25,20 @@ using System;
 using R7.Dnn.AddUser.Models;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Security.Membership;
+using DotNetNuke.Security.Roles;
 
 namespace R7.Dnn.AddUser.Components
 {
     class AddUserManager
     {
         public AddUserResult AddUser (string firstName, string lastName, string otherName,
-                                      string displayNameFormat,
+                                      AddUserSettings settings,
                                       string email, int portalId)
         {
             var user = new UserInfo {
                 FirstName = firstName,
                 LastName = lastName,
-                DisplayName = FormatDisplayName (displayNameFormat, firstName, lastName, otherName),
+                DisplayName = FormatDisplayName (settings.DisplayNameFormat, firstName, lastName, otherName),
                 Email = email,
                 // TODO: Generate Username?
                 Username = email,
@@ -49,6 +50,17 @@ namespace R7.Dnn.AddUser.Components
 
             UserCreateStatus userCreateStatus = UserController.CreateUser (ref user);
 
+            if (userCreateStatus == UserCreateStatus.Success) {
+                foreach (var roleId in settings.RoleIds) {
+                    var role = RoleController.Instance.GetRoleById (portalId, roleId);
+                    if (role != null) {
+                        RoleController.Instance.AddUserRole (portalId, user.UserID, role.RoleID,
+                                                             RoleStatus.Approved, false,
+                                                             DateTime.MinValue, DateTime.MinValue);
+                    }
+                }
+            }
+            
             return new AddUserResult {
                 UserCreateStatus = userCreateStatus,
                 UserId = user.UserID,

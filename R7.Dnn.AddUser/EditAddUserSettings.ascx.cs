@@ -25,7 +25,11 @@
 // THE SOFTWARE.
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.UI.WebControls;
 using DotNetNuke.Entities.Modules;
+using DotNetNuke.Security.Roles;
 using DotNetNuke.Services.Exceptions;
 using R7.Dnn.AddUser.Models;
 using R7.Dnn.Extensions.Modules;
@@ -36,14 +40,27 @@ namespace R7.Dnn.AddUser
     {
         #region Controls
 
-        // TODO: Declare controls here
+        protected TextBox textDisplayNameFormat;
+        protected TextBox textRoles;
+        protected TextBox textDoneUrl;
+        protected CheckBox checkDoneUrlOpenInPopup;
 
         #endregion
+
+        #region ModuleSettingsBase overrides
 
         public override void LoadSettings ()
         {
             try {
                 if (!IsPostBack) {
+                    textDisplayNameFormat.Text = Settings.DisplayNameFormat;
+                    textDoneUrl.Text = Settings.DoneUrl;
+                    checkDoneUrlOpenInPopup.Checked = Settings.DoneUrlOpenInPopup;
+                    textRoles.Text = string.Join (
+                        ", ",
+                        ParseRoleIdsStringToRoleNames (Settings.Roles, PortalId)
+                            .Select (roleName => roleName.Trim ())
+                    );
                 }
             }
             catch (Exception ex) {
@@ -54,11 +71,44 @@ namespace R7.Dnn.AddUser
         public override void UpdateSettings ()
         {
             try {
+                Settings.DisplayNameFormat = textDisplayNameFormat.Text.Trim ();
+                Settings.DoneUrl = textDoneUrl.Text.Trim ();
+                Settings.DoneUrlOpenInPopup = checkDoneUrlOpenInPopup.Checked;
+                Settings.Roles = string.Join (
+                    ";",
+                    ParseRoleNamesStringToRoleIds (textRoles.Text, PortalId)
+                        .Select (roleId => roleId.ToString ())
+                );
+
                 SettingsRepository.SaveSettings (ModuleConfiguration, Settings);
                 ModuleController.SynchronizeModule (ModuleId);
             }
             catch (Exception ex) {
                 Exceptions.ProcessModuleLoadException (this, ex);
+            }
+        }
+
+        #endregion
+
+        IEnumerable<string> ParseRoleIdsStringToRoleNames (string roleIds, int portalId)
+        {
+            foreach (var strRoleId in (roleIds ?? string.Empty)
+                     .Split (";".ToCharArray (), StringSplitOptions.RemoveEmptyEntries)) {
+                var role = RoleController.Instance.GetRoleById (portalId, int.Parse (strRoleId));
+                if (role != null) {
+                    yield return role.RoleName;
+                }
+            }
+        }
+
+        IEnumerable<int> ParseRoleNamesStringToRoleIds (string roleNames, int portalId)
+        {
+            foreach (var roleName in (roleNames ?? string.Empty)
+                     .Split (",;".ToCharArray (), StringSplitOptions.RemoveEmptyEntries)) {
+                var role = RoleController.Instance.GetRoleByName (portalId, roleName.Trim ());
+                if (role != null) {
+                    yield return role.RoleID;
+                }
             }
         }
     }

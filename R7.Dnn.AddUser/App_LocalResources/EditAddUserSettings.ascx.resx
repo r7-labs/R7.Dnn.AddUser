@@ -21,4 +21,31 @@
     <data name="BasicSettings.Section" xml:space="preserve">
         <value>Basic Settings</value>
     </data>
+	<data name="labelDisplayNameFormat.Text" xml:space="preserve">
+        <value>Display Name Format:</value>
+    </data>
+    <data name="labelDisplayNameFormat.Help" xml:space="preserve">
+        <value>Format of the display name generated for user.
+		Template variables for name parts are &quot;FirstName&quot;, &quot;LastName&quot;, &quot;OtherName&quot;
+		and also &quot;F.&quot;, &quot;L.&quot;, &quot;O.&quot; for first letters only.</value>
+    </data>
+	<data name="labelRoles.Text" xml:space="preserve">
+        <value>Assign Roles to User:</value>
+    </data>
+    <data name="labelRoles.Help" xml:space="preserve">
+        <value>Comma-separated list of role names to assign to newly created users.
+		If role with specified name doesn't exists, it will be ignored.</value>
+    </data>
+	<data name="labelDoneUrl.Text" xml:space="preserve">
+        <value>Redirect to URL on Done:</value>
+    </data>
+    <data name="labelDoneUrl.Help" xml:space="preserve">
+        <value>The custom URL to redirect after user was created.
+		{userId}, {tabId} and {portalId} template variables supported.
+		If &quot;Open in Popup&quot; checked, the URL will be opened in DNN popup 
+		(providing that popups are enabled in site settings).</value>
+    </data>
+    <data name="checkDoneUrlOpenInPopup.Text" xml:space="preserve">
+        <value>Open in Popup</value>
+    </data>
 </root>

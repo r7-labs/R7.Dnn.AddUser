@@ -27,15 +27,17 @@
 using System;
 using System.Web.UI.WebControls;
 using DotNetNuke.Common;
-using DotNetNuke.Entities.Modules;
+using DotNetNuke.Common.Utilities;
 using DotNetNuke.Security.Membership;
 using DotNetNuke.Services.Exceptions;
 using R7.Dnn.AddUser.Components;
+using R7.Dnn.AddUser.Models;
 using R7.Dnn.Extensions.ModuleExtensions;
+using R7.Dnn.Extensions.Modules;
 
 namespace R7.Dnn.AddUser
 {
-    public class AddUser : PortalModuleBase
+    public class AddUser : PortalModuleBase<AddUserSettings>
     {
         #region Controls
 
@@ -84,8 +86,7 @@ namespace R7.Dnn.AddUser
                         firstName: textFirstName.Text.Trim (),
                         lastName: textLastName.Text.Trim (),
                         otherName: textOtherName.Text.Trim (),
-                        // TODO: Get displayNameFormat from settings
-                        displayNameFormat: "LastName FirstName OtherName",
+                        settings: Settings,
                         email: textEmail.Text.Trim ().ToLower (),
                         portalId: PortalId
                     );
@@ -98,7 +99,12 @@ namespace R7.Dnn.AddUser
                         textLogin.Text = addUserResult.UserName;
                         textPassword.Text = addUserResult.Password;
 
-                        linkDone.NavigateUrl = Globals.NavigateURL ();
+                        if (!string.IsNullOrEmpty (Settings.DoneUrl)) {
+                            linkDone.NavigateUrl = FormatDoneUrl (Settings.DoneUrl, Settings.DoneUrlOpenInPopup, addUserResult.UserId);
+                        }
+                        else {
+                            linkDone.NavigateUrl = Globals.NavigateURL ();
+                        }
                     }
                     else {
                         // TODO: Localize message
@@ -112,5 +118,18 @@ namespace R7.Dnn.AddUser
         }
 
         #endregion
+
+        string FormatDoneUrl (string doneUrlTemplate, bool openInPopup, int userId)
+        {
+            var doneUrl = doneUrlTemplate.Replace ("{userId}", userId.ToString ())
+                                         .Replace ("{portalId}", PortalId.ToString ())
+                                         .Replace ("{tabId}", TabId.ToString ());
+
+            if (openInPopup) {
+                return UrlUtils.PopUpUrl (doneUrl, PortalSettings, false, false, 550, 950);
+            }
+
+            return doneUrl;
+        }
     }
 }
