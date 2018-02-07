@@ -26,16 +26,16 @@
     </data>
     <data name="labelDisplayNameFormat.Help" xml:space="preserve">
         <value>Формат для генерации отображаемого имени пользователя.
-        Переменные шаблона для частей имени: &quot;FirstName&quot;, &quot;LastName&quot;, &quot;OtherName&quot;,
-        а также &quot;F.&quot;, &quot;L.&quot;, &quot;O.&quot; для первых букв.</value>
+        Переменные шаблона для частей имени: [FIRSTNAME], [LASTNAME], [OTHERNAME],
+        а также [F], [L], [O] для первых букв.</value>
     </data>
 	<data name="labelUserNameFormat.Text" xml:space="preserve">
         <value>Формат имени пользователя:</value>
     </data>
     <data name="labelUserNameFormat.Help" xml:space="preserve">
         <value>Формат для генерации имени пользователя.
-        Переменные шаблона для частей имени: &quot;FirstName&quot;, &quot;LastName&quot;, &quot;OtherName&quot;, &quot;Email&quot;
-        а также &quot;F.&quot;, &quot;L.&quot;, &quot;O.&quot; для первых букв.
+        Переменные шаблона для частей имени: [FIRSTNAME], [LASTNAME], [OTHERNAME], [EMAIL],
+        а также [F], [L], [O] для первых букв.
 		Части имени будут транслитерированы и приведены в нижний регистр,
 		все не буквенно-числовые символы будут заменены на знак нижнего подчеркивания.</value>
     </data>
@@ -51,7 +51,7 @@
     </data>
     <data name="labelDoneUrl.Help" xml:space="preserve">
         <value>Пользовательский URL, по которому следует перенаправлять запрос после успешного создания пользователя.
-        Поддерживаются переменные шаблона {userId}, {tabId} и {portalId}.
+        Поддерживаются переменные шаблона [USERID], [TABID] и [PORTALID].
 	    Если отмечен флаг &quot;Открыть во всплывающем окне&quot;, то URL будет открыт во всплывающем окне DNN 
         (при условии, что всплывающие окна включены в настройках сайта).</value>
     </data>

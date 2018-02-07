@@ -37,10 +37,10 @@ namespace R7.Dnn.AddUser.Models
     public class AddUserSettings
     {
         [ModuleSetting (Prefix = "AddUser_")]
-        public string DisplayNameFormat { get; set; } = "FirstName OtherName LastName";
+        public string DisplayNameFormat { get; set; } = "[FIRSTNAME] [O] [LASTNAME]";
 
         [ModuleSetting (Prefix = "AddUser_")]
-        public string UserNameFormat { get; set; } = "LastName F.O.";
+        public string UserNameFormat { get; set; } = "[LASTNAME]_[F][O]";
 
         [ModuleSetting (Prefix = "AddUser_")]
         public string DoneUrl { get; set; }

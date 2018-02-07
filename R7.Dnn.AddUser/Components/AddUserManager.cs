@@ -91,13 +91,13 @@ namespace R7.Dnn.AddUser.Components
                 return email;
             }
 
-            var userName = userNameFormat.Replace ("FirstName", firstName)
-                                         .Replace ("F.", FirstCharOrEmpty (firstName))
-                                         .Replace ("LastName", lastName)
-                                         .Replace ("L.", FirstCharOrEmpty (lastName))
-                                         .Replace ("OtherName", otherName)
-                                         .Replace ("O.", FirstCharOrEmpty (otherName))
-                                         .Replace ("Email", email.Replace ("@", " at "))
+            var userName = userNameFormat.Replace ("[FIRSTNAME]", firstName)
+                                         .Replace ("[F]", FirstCharOrEmpty (firstName))
+                                         .Replace ("[LASTNAME]", lastName)
+                                         .Replace ("[L]", FirstCharOrEmpty (lastName))
+                                         .Replace ("[OTHERNAME]", otherName)
+                                         .Replace ("[O]", FirstCharOrEmpty (otherName))
+                                         .Replace ("[EMAIL]", email.Replace ("@", " at "))
                                          .ToLower ()
                                          .Unidecode ();
 
@@ -107,13 +107,13 @@ namespace R7.Dnn.AddUser.Components
         // TODO: Add tests
         string FormatDisplayName (string displayNameFormat, string firstName, string lastName, string otherName)
         {
-            return displayNameFormat.Replace ("FirstName", firstName)
-                                    .Replace ("F.", AppendIfNotEmpty (FirstCharOrEmpty (firstName), "."))
-                                    .Replace ("LastName", lastName)
-                                    .Replace ("L.", AppendIfNotEmpty (FirstCharOrEmpty (lastName), "."))
-                                    .Replace ("OtherName", otherName)
-                                    .Replace ("O.", AppendIfNotEmpty (FirstCharOrEmpty (otherName), "."))
-                                    .Replace ("  ", " ");
+            var displayName = displayNameFormat.Replace ("[FIRSTNAME]", firstName)
+                                               .Replace ("[F]", AppendIfNotEmpty (FirstCharOrEmpty (firstName), "."))
+                                               .Replace ("[LASTNAME]", lastName)
+                                               .Replace ("[L]", AppendIfNotEmpty (FirstCharOrEmpty (lastName), "."))
+                                               .Replace ("[OTHERNAME]", otherName)
+                                               .Replace ("[O]", AppendIfNotEmpty (FirstCharOrEmpty (otherName), "."));
+            return Regex.Replace (displayName, @"\s+", " ");
         }
 
         string FirstCharOrEmpty (string value) =>

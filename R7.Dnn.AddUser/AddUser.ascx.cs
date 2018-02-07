@@ -131,9 +131,9 @@ namespace R7.Dnn.AddUser
 
         string FormatDoneUrl (string doneUrlTemplate, bool openInPopup, int userId)
         {
-            var doneUrl = doneUrlTemplate.Replace ("{userId}", userId.ToString ())
-                                         .Replace ("{portalId}", PortalId.ToString ())
-                                         .Replace ("{tabId}", TabId.ToString ());
+            var doneUrl = doneUrlTemplate.Replace ("[USERID]", userId.ToString ())
+                                         .Replace ("[PORTALID]", PortalId.ToString ())
+                                         .Replace ("[TABID]", TabId.ToString ());
 
             if (openInPopup) {
                 return UrlUtils.PopUpUrl (doneUrl, PortalSettings, false, false, 550, 950);
