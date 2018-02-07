@@ -20,7 +20,7 @@
         </div>
 		<div class="dnnFormItem">
             <dnn:Label id="labelDoneUrl" runat="server" ControlName="textDoneUrl" />
-            <asp:TextBox id="textDoneUrl" runat="server" />
+            <asp:TextBox id="textDoneUrl" runat="server" Style="margin-bottom:0" />
 		</div>
         <div class="dnnFormItem">
 			<div class="dnnLabel"></div>
