@@ -92,8 +92,8 @@ namespace R7.Dnn.AddUser
                     );
 
                     if (addUserResult.UserCreateStatus == UserCreateStatus.Success) {
-                        // TODO: Localize message
-                        this.Message (addUserResult.UserCreateStatus.ToString (), MessageType.Success, false);
+                        this.Message ("UserCreateStatus_Success.Text", MessageType.Success, true);
+
                         panelUserAdded.Visible = true;
                         panelUserInfo.Visible = false;
                         textLogin.Text = addUserResult.UserName;
@@ -106,9 +106,17 @@ namespace R7.Dnn.AddUser
                             linkDone.NavigateUrl = Globals.NavigateURL ();
                         }
                     }
+                    else if (addUserResult.UserCreateStatus == UserCreateStatus.UsernameAlreadyExists) {
+                        this.Message (string.Format (
+                            LocalizeString ("UserCreateStatus_UsernameAlreadyExists.Text"), addUserResult.UserName),
+                                      MessageType.Warning, false
+                         );
+                    }
                     else {
-                        // TODO: Localize message
-                        this.Message (addUserResult.UserCreateStatus.ToString (), MessageType.Error, false);
+                        this.Message (string.Format (
+                            LocalizeString ("UserCreateStatus_Other.Text"), addUserResult.UserCreateStatus.ToString ()),
+                                      MessageType.Error, false
+                        );
                     }
                 }
 

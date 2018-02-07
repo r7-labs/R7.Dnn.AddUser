@@ -60,4 +60,16 @@
 	<data name="linkDone.Text" xml:space="preserve">
         <value>Готово</value>
     </data>
+	<data name="UserCreateStatus_Success.Text" xml:space="preserve">
+        <value>Учётная запись пользователя успешно создана. Скопируйте и сохраните учетные данные в надежном месте.</value>
+    </data>
+	<data name="UserCreateStatus_UsernameAlreadyExists.Text" xml:space="preserve">
+        <value>Учётная запись с именем &lt;strong&gt;{0}&lt;/strong&gt; уже существует -
+		возможно, этот пользователь уже был зарегистрирован ранее?&lt;br /&gt;
+		Вы также можете изменить данные в форме и попробовать снова.</value>
+    </data>
+    <data name="UserCreateStatus_Other.Text" xml:space="preserve">
+        <value>Ошибка при создании учётной записи пользователя! Сообщение об ошибке: &lt;strong&gt;{0}&lt;/strong&gt;.&lt;br /&gt;
+		Чтобы исправить это, свяжитесь с администратором сайта.</value>
+    </data>
 </root>

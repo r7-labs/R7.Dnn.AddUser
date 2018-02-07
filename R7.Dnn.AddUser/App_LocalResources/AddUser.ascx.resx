@@ -60,4 +60,16 @@
     <data name="linkDone.Text" xml:space="preserve">
         <value>Done</value>
     </data>
+	<data name="UserCreateStatus_Success.Text" xml:space="preserve">
+        <value>User account created successfully. Please copy and store user credentials in a safe place.</value>
+    </data>
+	<data name="UserCreateStatus_UsernameAlreadyExists.Text" xml:space="preserve">
+        <value>The account with name &lt;strong&gt;{0}&lt;/strong&gt; already exists -
+		perhaps this user has already been registered before?&lt;br /&gt;
+		You could also update form fields and try again.</value>
+    </data>
+	<data name="UserCreateStatus_Other.Text" xml:space="preserve">
+        <value>Error creating user account! Error message: &lt;strong&gt;{0}&lt;/strong&gt;.&lt;br /&gt;
+		Please contact website administrator to correct this.</value>
+    </data>
 </root>
