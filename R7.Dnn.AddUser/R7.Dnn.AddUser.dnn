@@ -82,6 +82,10 @@
                             <path>bin</path>
                             <name>R7.Dnn.AddUser.dll</name>
                         </assembly>
+						<assembly>
+                            <path>bin</path>
+                            <name>Unidecode.NET.dll</name>
+                        </assembly>
                     </assemblies>
                 </component>
             </components>
