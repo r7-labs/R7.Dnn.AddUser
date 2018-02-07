@@ -40,22 +40,22 @@
 		all non-alphanumeric characters will be replaced with underscore.</value>
     </data>
 	<data name="labelRoles.Text" xml:space="preserve">
-        <value>Assign Roles to User:</value>
+        <value>Roles to Assign:</value>
     </data>
     <data name="labelRoles.Help" xml:space="preserve">
         <value>Comma-separated list of role names to assign to newly created users.
-		If role with specified name doesn't exists, it will be ignored.</value>
+		If some of the specified roles doesn't exists, they will be ignored.</value>
     </data>
 	<data name="labelDoneUrl.Text" xml:space="preserve">
-        <value>Redirect to URL on Done:</value>
+        <value>Redirect to URL when Done:</value>
     </data>
     <data name="labelDoneUrl.Help" xml:space="preserve">
         <value>The custom URL to redirect after user was created.
 		[USERID], [TABID] and [PORTALID] template variables supported.
-		If &quot;Open in Popup&quot; checked, the URL will be opened in DNN popup 
+		If &quot;Open inside Popup&quot; checked, the URL will be opened inside DNN popup 
 		(providing that popups are enabled in site settings).</value>
     </data>
     <data name="checkDoneUrlOpenInPopup.Text" xml:space="preserve">
-        <value>Open in Popup</value>
+        <value>Open inside Popup</value>
     </data>
 </root>
