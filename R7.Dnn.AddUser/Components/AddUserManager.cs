@@ -63,8 +63,7 @@ namespace R7.Dnn.AddUser.Components
             
             return new AddUserResult {
                 UserCreateStatus = userCreateStatus,
-                UserId = user.UserID,
-                UserName = user.Username,
+                User = user,
                 Password = password
             };
         }

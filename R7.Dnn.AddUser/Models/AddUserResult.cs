@@ -21,7 +21,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
+using DotNetNuke.Entities.Users;
 using DotNetNuke.Security.Membership;
 
 namespace R7.Dnn.AddUser.Models
@@ -30,9 +30,7 @@ namespace R7.Dnn.AddUser.Models
     {
         public UserCreateStatus UserCreateStatus { get; set; }
 
-        public int UserId { get; set; }
-
-        public string UserName { get; set; }
+        public UserInfo User { get;  set; }
 
         public string Password { get; set; }
     }

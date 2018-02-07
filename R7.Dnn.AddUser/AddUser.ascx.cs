@@ -96,11 +96,11 @@ namespace R7.Dnn.AddUser
 
                         panelUserAdded.Visible = true;
                         panelUserInfo.Visible = false;
-                        textLogin.Text = addUserResult.UserName;
+                        textLogin.Text = addUserResult.User.Username;
                         textPassword.Text = addUserResult.Password;
 
                         if (!string.IsNullOrEmpty (Settings.DoneUrl)) {
-                            linkDone.NavigateUrl = FormatDoneUrl (Settings.DoneUrl, Settings.DoneUrlOpenInPopup, addUserResult.UserId);
+                            linkDone.NavigateUrl = FormatDoneUrl (Settings.DoneUrl, Settings.DoneUrlOpenInPopup, addUserResult.User.UserID);
                         }
                         else {
                             linkDone.NavigateUrl = Globals.NavigateURL ();
@@ -108,7 +108,7 @@ namespace R7.Dnn.AddUser
                     }
                     else if (addUserResult.UserCreateStatus == UserCreateStatus.UsernameAlreadyExists) {
                         this.Message (string.Format (
-                            LocalizeString ("UserCreateStatus_UsernameAlreadyExists.Text"), addUserResult.UserName),
+                            LocalizeString ("UserCreateStatus_UsernameAlreadyExists.Text"), addUserResult.User.Username),
                                       MessageType.Warning, false
                          );
                     }
