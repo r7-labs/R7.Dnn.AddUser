@@ -40,6 +40,7 @@ namespace R7.Dnn.AddUser
     {
         #region Controls
 
+        protected Panel panelGeneralSettings;
         protected TextBox textDisplayNameFormat;
         protected TextBox textUserNameFormat;
         protected TextBox textRoles;
@@ -47,6 +48,15 @@ namespace R7.Dnn.AddUser
         protected CheckBox checkDoneUrlOpenInPopup;
 
         #endregion
+
+        protected override void OnInit (EventArgs e)
+        {
+            base.OnInit (e);
+
+            if (panelGeneralSettings != null) {
+                panelGeneralSettings.Visible = UserInfo.IsSuperUser || UserInfo.IsInRole ("Administrators");
+            }
+        }
 
         #region ModuleSettingsBase overrides
 

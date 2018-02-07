@@ -18,7 +18,7 @@
     <data name="ModuleHelp.Text" xml:space="preserve">
         <value></value>
     </data>
-    <data name="BasicSettings.Section" xml:space="preserve">
+    <data name="GeneralSettings.Section" xml:space="preserve">
         <value>Основные настройки</value>
     </data>
 	<data name="labelDisplayNameFormat.Text" xml:space="preserve">

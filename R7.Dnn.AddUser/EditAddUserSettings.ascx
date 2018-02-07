@@ -3,8 +3,8 @@
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.UI.WebControls" Assembly="DotNetNuke.Web" %>
 <%@ Register TagPrefix="dnn" Namespace="DotNetNuke.Web.Client.ClientResourceManagement" Assembly="DotNetNuke.Web.Client" %>
 <dnn:DnnCssInclude runat="server" FilePath="~/DesktopModules/R7.Dnn.AddUser/R7.Dnn.AddUser/admin.css" />
-<asp:Panel id="panelSettings" runat="server" CssClass="dnnForm dnnClear">
-    <h2 class="dnnFormSectionHead"><a href="#"><asp:Label runat="server" ResourceKey="BasicSettings.Section" /></a></h2>
+<asp:Panel id="panelGeneralSettings" runat="server" CssClass="dnnForm dnnClear">
+    <h2 class="dnnFormSectionHead"><a href="#"><asp:Label runat="server" resourcekey="GeneralSettings.Section" /></a></h2>
     <fieldset>  
         <div class="dnnFormItem">
 			<dnn:Label id="labelDisplayNameFormat" runat="server" ControlName="textDisplayNameFormat" />

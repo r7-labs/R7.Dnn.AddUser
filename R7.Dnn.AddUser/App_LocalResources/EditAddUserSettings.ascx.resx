@@ -18,8 +18,8 @@
     <data name="ModuleHelp.Text" xml:space="preserve">
         <value></value>
     </data>
-    <data name="BasicSettings.Section" xml:space="preserve">
-        <value>Basic Settings</value>
+    <data name="GeneralSettings.Section" xml:space="preserve">
+        <value>General Settings</value>
     </data>
 	<data name="labelDisplayNameFormat.Text" xml:space="preserve">
         <value>Display Name Format:</value>
