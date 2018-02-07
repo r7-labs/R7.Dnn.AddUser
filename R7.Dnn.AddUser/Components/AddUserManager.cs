@@ -22,10 +22,12 @@
 // THE SOFTWARE.
 
 using System;
-using R7.Dnn.AddUser.Models;
+using System.Collections.Generic;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Security.Membership;
 using DotNetNuke.Security.Roles;
+using DotNetNuke.Services.Exceptions;
+using R7.Dnn.AddUser.Models;
 
 namespace R7.Dnn.AddUser.Components
 {
@@ -51,13 +53,12 @@ namespace R7.Dnn.AddUser.Components
             UserCreateStatus userCreateStatus = UserController.CreateUser (ref user);
 
             if (userCreateStatus == UserCreateStatus.Success) {
-                foreach (var roleId in settings.RoleIds) {
-                    var role = RoleController.Instance.GetRoleById (portalId, roleId);
-                    if (role != null) {
-                        RoleController.Instance.AddUserRole (portalId, user.UserID, role.RoleID,
-                                                             RoleStatus.Approved, false,
-                                                             DateTime.MinValue, DateTime.MinValue);
-                    }
+                try {
+                    AssignUserToRoles (user, settings.RoleIds, portalId);
+                }
+                catch (Exception ex) {
+                    userCreateStatus = UserCreateStatus.UnexpectedError;
+                    Exceptions.LogException (new SecurityException ("Cannot assign user to roles", ex));
                 }
             }
             
@@ -67,6 +68,19 @@ namespace R7.Dnn.AddUser.Components
                 Password = password
             };
         }
+
+        void AssignUserToRoles (UserInfo user, IEnumerable<int> roleIds, int portalId)
+        {
+            foreach (var roleId in roleIds) {
+                var role = RoleController.Instance.GetRoleById (portalId, roleId);
+                if (role != null) {
+                    RoleController.Instance.AddUserRole (portalId, user.UserID, role.RoleID,
+                                                             RoleStatus.Approved, false,
+                                                             DateTime.MinValue, DateTime.MinValue);
+                }
+            }
+        }
+
 
         // TODO: Add tests
         string FormatDisplayName (string displayNameFormat, string firstName, string lastName, string otherName)
