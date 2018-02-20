@@ -48,9 +48,9 @@ namespace R7.Dnn.AddUser.Components
                 PortalID = portalId
             };
 
-            var password = UserController.GeneratePassword ();
+            var password = GeneratePassword ();
             user.Membership.Password = password;
-
+            
             UserCreateStatus userCreateStatus = UserController.CreateUser (ref user);
 
             if (userCreateStatus == UserCreateStatus.Success) {
@@ -68,6 +68,11 @@ namespace R7.Dnn.AddUser.Components
                 User = user,
                 Password = password
             };
+        }
+
+        string GeneratePassword ()
+        {
+            return UserController.GeneratePassword (MembershipProviderConfig.MinPasswordLength);
         }
 
         void AssignUserToRoles (UserInfo user, IEnumerable<int> roleIds, int portalId)
