@@ -73,7 +73,7 @@
         <value>Email is invalid.</value>
     </data>
 	<data name="UserCreateStatus_Success.Text" xml:space="preserve">
-        <value>User account created successfully. Please copy and store user credentials in a safe place.</value>
+        <value>User account created successfully. Please copy user credentials and save them in a safe place.</value>
     </data>
 	<data name="UserCreateStatus_UsernameAlreadyExists.Text" xml:space="preserve">
         <value>The account with name &lt;strong&gt;{0}&lt;/strong&gt; already exists -

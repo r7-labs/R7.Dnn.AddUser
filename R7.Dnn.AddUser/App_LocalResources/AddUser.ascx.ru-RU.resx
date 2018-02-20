@@ -73,7 +73,7 @@
         <value>Введите адрес электронной почты в корректном формате.</value>
     </data>
 	<data name="UserCreateStatus_Success.Text" xml:space="preserve">
-        <value>Учётная запись пользователя успешно создана. Скопируйте и сохраните учетные данные в надежном месте.</value>
+        <value>Учётная запись пользователя успешно создана. Скопируйте учётные данные пользователя и сохраните их в надёжном месте.</value>
     </data>
 	<data name="UserCreateStatus_UsernameAlreadyExists.Text" xml:space="preserve">
         <value>Учётная запись с именем &lt;strong&gt;{0}&lt;/strong&gt; уже существует -
