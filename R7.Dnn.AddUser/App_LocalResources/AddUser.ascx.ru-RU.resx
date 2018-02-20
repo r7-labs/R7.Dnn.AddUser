@@ -60,6 +60,18 @@
 	<data name="linkDone.Text" xml:space="preserve">
         <value>Готово</value>
     </data>
+	<data name="LastName_Required.Text" xml:space="preserve">
+        <value>Введите фамилию.</value>
+    </data>
+    <data name="FirstName_Required.Text" xml:space="preserve">
+        <value>Введите имя.</value>
+    </data>
+    <data name="Email_Required.Text" xml:space="preserve">
+        <value>Введите адрес электронной почты.</value>
+    </data>
+    <data name="Email_Invalid.Text" xml:space="preserve">
+        <value>Введите адрес электронной почты в корректном формате.</value>
+    </data>
 	<data name="UserCreateStatus_Success.Text" xml:space="preserve">
         <value>Учётная запись пользователя успешно создана. Скопируйте и сохраните учетные данные в надежном месте.</value>
     </data>

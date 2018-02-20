@@ -60,6 +60,18 @@
     <data name="linkDone.Text" xml:space="preserve">
         <value>Done</value>
     </data>
+	<data name="LastName_Required.Text" xml:space="preserve">
+        <value>Last name is required.</value>
+    </data>
+	<data name="FirstName_Required.Text" xml:space="preserve">
+        <value>First name is required.</value>
+    </data>
+	<data name="Email_Required.Text" xml:space="preserve">
+        <value>Email is required.</value>
+    </data>
+	<data name="Email_Invalid.Text" xml:space="preserve">
+        <value>Email is invalid.</value>
+    </data>
 	<data name="UserCreateStatus_Success.Text" xml:space="preserve">
         <value>User account created successfully. Please copy and store user credentials in a safe place.</value>
     </data>
