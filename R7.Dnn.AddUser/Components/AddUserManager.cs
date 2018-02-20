@@ -101,7 +101,8 @@ namespace R7.Dnn.AddUser.Components
                                          .ToLower ()
                                          .Unidecode ();
 
-            return Regex.Replace (Regex.Replace (userName, @"[^a-z0-9]", "_"), @"_+", "_").Trim ('_');
+            var userName2 = Regex.Replace (Regex.Replace (userName, @"[^a-z0-9]", "_"), @"_+", "_").Trim ('_');
+            return (userName2.Length > 100)? userName2.Substring (0, 100) : userName2;
         }
 
         // TODO: Add tests
@@ -113,7 +114,9 @@ namespace R7.Dnn.AddUser.Components
                                                .Replace ("[L]", AppendIfNotEmpty (FirstCharOrEmpty (lastName), "."))
                                                .Replace ("[OTHERNAME]", otherName)
                                                .Replace ("[O]", AppendIfNotEmpty (FirstCharOrEmpty (otherName), "."));
-            return Regex.Replace (displayName, @"\s+", " ");
+
+            var displayName2 = Regex.Replace (displayName, @"\s+", " ");
+            return (displayName2.Length > 128)? displayName2.Substring (0, 128) : displayName2;
         }
 
         string FirstCharOrEmpty (string value) =>

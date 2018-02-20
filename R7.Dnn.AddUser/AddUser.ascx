@@ -9,7 +9,7 @@
     <fieldset>  
         <div class="dnnFormItem dnnFormRequired">
             <dnn:Label id="labelLastName" runat="server" ControlName="textLastName" />
-            <asp:TextBox id="textLastName" runat="server" />
+            <asp:TextBox id="textLastName" runat="server" MaxLength="50" />
 			<asp:RequiredFieldValidator runat="server" resourcekey="LastName_Required.Text"
 				ControlToValidate="textLastName"
 				ValidationGroup="AddUser"
@@ -18,7 +18,7 @@
         </div>
 		<div class="dnnFormItem dnnFormRequired">
 			<dnn:Label id="labelFirstName" runat="server" ControlName="textFirstName" />
-			<asp:TextBox id="textFirstName" runat="server" />
+			<asp:TextBox id="textFirstName" runat="server" MaxLength="50" />
             <asp:RequiredFieldValidator runat="server" resourcekey="FirstName_Required.Text"
                 ControlToValidate="textFirstName"
                 ValidationGroup="AddUser"
@@ -27,11 +27,11 @@
         </div>
 		<div class="dnnFormItem">
             <dnn:Label id="labelOtherName" runat="server" ControlName="textOtherName" />
-            <asp:TextBox id="textOtherName" runat="server" />
+            <asp:TextBox id="textOtherName" runat="server" MaxLength="50" />
         </div>
 		<div class="dnnFormItem dnnFormRequired">
             <dnn:Label id="labelEmail" runat="server" ControlName="textEmail" />
-            <asp:TextBox id="textEmail" runat="server" />
+            <asp:TextBox id="textEmail" runat="server" MaxLength="128" />
 			<asp:RequiredFieldValidator runat="server" resourcekey="Email_Required.Text"
                 ControlToValidate="textEmail"
                 ValidationGroup="AddUser"
