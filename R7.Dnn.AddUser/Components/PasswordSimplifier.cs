@@ -31,18 +31,18 @@ namespace R7.Dnn.AddUser.Components
     public class PasswordSimplifier
     {
         // TODO: Add test
-        public string SimplifyPassword (string password, string allowedNonAlphaChars)
+        public string SimplifyPassword (string password, string allowedSpecialChars)
         {
             var rnd = new Random ();
             rnd.Next ();
 
             var simplePassword = string.Empty;
             foreach (var pch in password) {
-                if (char.IsLetterOrDigit (pch) || allowedNonAlphaChars.IndexOf (pch) >= 0) {
+                if (char.IsLetterOrDigit (pch) || allowedSpecialChars.IndexOf (pch) >= 0) {
                     simplePassword += pch;
                 }
                 else {
-                    simplePassword += allowedNonAlphaChars [rnd.Next (allowedNonAlphaChars.Length)];
+                    simplePassword += allowedSpecialChars [rnd.Next (allowedSpecialChars.Length)];
                 }
             }
 
