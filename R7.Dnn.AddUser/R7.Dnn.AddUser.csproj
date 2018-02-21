@@ -117,6 +117,7 @@
     <Compile Include="Models\AddUserResult.cs" />
     <Compile Include="Components\PasswordGenerator.cs" />
     <Compile Include="Models\HumanName.cs" />
+    <Compile Include="Components\NameFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />

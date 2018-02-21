@@ -81,7 +81,11 @@ namespace R7.Dnn.AddUser
         {
             try {
                 if (Page.IsValid) {
-                    var addUserManager = new AddUserManager ();
+                    var addUserManager = new AddUserManager (
+                        new NameFormatter (),
+                        new PasswordGenerator ()
+                    );
+
                     var addUserResult = addUserManager.AddUser (
                         new HumanName (
                             textFirstName.Text.Trim (),
