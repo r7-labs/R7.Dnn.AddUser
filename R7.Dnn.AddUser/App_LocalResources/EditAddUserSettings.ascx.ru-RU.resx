@@ -42,6 +42,15 @@
 		Части имени будут транслитерированы и приведены в нижний регистр,
 		все не буквенно-числовые символы будут заменены на знак нижнего подчеркивания.</value>
     </data>
+	<data name="labelDesiredPasswordLength.Text" xml:space="preserve">
+        <value>Длина пароля:</value>
+    </data>
+    <data name="labelDesiredPasswordLength.Help" xml:space="preserve">
+        <value>Введите предпочтительную длину пароля в символах.
+			Если не указано, генератор будет использовать значение по умолчанию.
+			Если указанное значение меньше минимальной длины пароля, заданной в web.config,
+		    то данная настройка будет проигнорирована.</value>
+    </data>
     <data name="labelRoles.Text" xml:space="preserve">
         <value>Назначаемые роли:</value>
     </data>

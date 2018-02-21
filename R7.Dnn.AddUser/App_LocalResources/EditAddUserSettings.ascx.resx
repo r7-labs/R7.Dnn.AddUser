@@ -41,6 +41,15 @@
 		Name parts will be transliterated and lowercased,
 		all non-alphanumeric characters will be replaced with underscore.</value>
     </data>
+	<data name="labelDesiredPasswordLength.Text" xml:space="preserve">
+        <value>Password Length:</value>
+    </data>
+	<data name="labelDesiredPasswordLength.Help" xml:space="preserve">
+        <value>Enter desired password length in characters.
+			If not specified, generator will use the default value.
+            If specified value is less than minimal password length defined in web.config,
+		    then this setting will be ignored.</value>
+    </data>
 	<data name="labelRoles.Text" xml:space="preserve">
         <value>Roles to Assign:</value>
     </data>

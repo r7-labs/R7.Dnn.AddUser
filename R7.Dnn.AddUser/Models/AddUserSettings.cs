@@ -43,6 +43,9 @@ namespace R7.Dnn.AddUser.Models
         public string UserNameFormat { get; set; } = "[LASTNAME]_[F][O]";
 
         [ModuleSetting (Prefix = "AddUser_")]
+        public int? DesiredPasswordLength { get; set; }
+
+        [ModuleSetting (Prefix = "AddUser_")]
         public string DoneUrl { get; set; }
 
         [ModuleSetting (Prefix = "AddUser_")]

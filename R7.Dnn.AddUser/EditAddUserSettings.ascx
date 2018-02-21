@@ -15,6 +15,10 @@
             <asp:TextBox id="textUserNameFormat" runat="server" />
         </div>
 		<div class="dnnFormItem">
+            <dnn:Label id="labelDesiredPasswordLength" runat="server" ControlName="textDesiredPasswordLength" />
+            <asp:TextBox id="textDesiredPasswordLength" runat="server" />
+        </div>
+		<div class="dnnFormItem">
             <dnn:Label id="labelRoles" runat="server" ControlName="textRoles" />
             <asp:TextBox id="textRoles" runat="server" />
         </div>

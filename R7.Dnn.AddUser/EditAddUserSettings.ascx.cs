@@ -33,6 +33,7 @@ using DotNetNuke.Security.Roles;
 using DotNetNuke.Services.Exceptions;
 using R7.Dnn.AddUser.Models;
 using R7.Dnn.Extensions.Modules;
+using R7.Dnn.Extensions.Utilities;
 
 namespace R7.Dnn.AddUser
 {
@@ -43,6 +44,7 @@ namespace R7.Dnn.AddUser
         protected Panel panelGeneralSettings;
         protected TextBox textDisplayNameFormat;
         protected TextBox textUserNameFormat;
+        protected TextBox textDesiredPasswordLength;
         protected TextBox textRoles;
         protected TextBox textDoneUrl;
         protected CheckBox checkDoneUrlOpenInPopup;
@@ -66,6 +68,7 @@ namespace R7.Dnn.AddUser
                 if (!IsPostBack) {
                     textDisplayNameFormat.Text = Settings.DisplayNameFormat;
                     textUserNameFormat.Text = Settings.UserNameFormat;
+                    textDesiredPasswordLength.Text = Settings.DesiredPasswordLength.ToString ();
                     textDoneUrl.Text = Settings.DoneUrl;
                     checkDoneUrlOpenInPopup.Checked = Settings.DoneUrlOpenInPopup;
                     textRoles.Text = string.Join (
@@ -85,6 +88,7 @@ namespace R7.Dnn.AddUser
             try {
                 Settings.DisplayNameFormat = textDisplayNameFormat.Text.Trim ();
                 Settings.UserNameFormat = textUserNameFormat.Text.Trim ();
+                Settings.DesiredPasswordLength = TypeUtils.ParseToNullable<int> (textDesiredPasswordLength.Text);
                 Settings.DoneUrl = textDoneUrl.Text.Trim ();
                 Settings.DoneUrlOpenInPopup = checkDoneUrlOpenInPopup.Checked;
                 Settings.Roles = string.Join (

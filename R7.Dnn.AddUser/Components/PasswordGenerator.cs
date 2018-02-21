@@ -32,9 +32,13 @@ namespace R7.Dnn.AddUser.Components
 {
     public class PasswordGenerator: IPasswordGenerator
     {
-        public string GeneratePassword (int desiredLength)
+        public string GeneratePassword (int? desiredLength)
         {
-            return UserController.GeneratePassword (Math.Max (desiredLength, MinLength));
+            if (desiredLength != null) {
+                return UserController.GeneratePassword (Math.Max (desiredLength.Value, MinLength));
+            }
+
+            return UserController.GeneratePassword ();
         }
 
         public int MinLength => MembershipProviderConfig.MinPasswordLength;
