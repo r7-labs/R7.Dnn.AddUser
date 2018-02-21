@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <dotnetnuke type="Package" version="5.0">
     <packages>
-        <package name="R7.Dnn.AddUser" type="Module" version="00.01.00">
+        <package name="R7.Dnn.AddUser" type="Module" version="01.00.00">
             <friendlyName>R7.Dnn.AddUser</friendlyName>
             <description>Module which allow non-admins to create new users.</description>
             <owner>
