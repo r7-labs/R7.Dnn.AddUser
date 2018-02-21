@@ -24,6 +24,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+using System;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Security.Membership;
 
@@ -31,9 +32,11 @@ namespace R7.Dnn.AddUser.Components
 {
     public class PasswordGenerator: IPasswordGenerator
     {
-        public string GeneratePassword ()
+        public string GeneratePassword (int desiredLength)
         {
-            return UserController.GeneratePassword (MembershipProviderConfig.MinPasswordLength);
+            return UserController.GeneratePassword (Math.Max (desiredLength, MinLength));
         }
+
+        public int MinLength => MembershipProviderConfig.MinPasswordLength;
     }
 }
