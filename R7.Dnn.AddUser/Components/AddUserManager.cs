@@ -61,7 +61,12 @@ namespace R7.Dnn.AddUser.Components
                 PortalID = portalId
             };
 
-            var password = new PasswordGenerator ().GeneratePassword (settings.DesiredPasswordLength);
+            var password = new PasswordSimplifier ().SimplifyPassword (
+                new PasswordGenerator ().GeneratePassword (settings.DesiredPasswordLength),
+                // TODO: Add setting for this
+                "@#$&*_"
+            );
+
             user.Membership.Password = password;
             
             UserCreateStatus userCreateStatus = UserController.CreateUser (ref user);

@@ -120,6 +120,7 @@
     <Compile Include="Components\NameFormatter.cs" />
     <Compile Include="Components\INameFormatter.cs" />
     <Compile Include="Components\IPasswordGenerator.cs" />
+    <Compile Include="Components\PasswordSimplifier.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
