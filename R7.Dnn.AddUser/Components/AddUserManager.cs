@@ -1,7 +1,10 @@
 ﻿//
 // AddUserManager.cs
 //
-// Copyright (c) 2018 Volgograd State Agricultural University
+// Author:
+//       Roman M. Yagodin <roman.yagodin@gmail.com>
+//
+// Copyright (c) 2018 Roman M. Yagodin
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal

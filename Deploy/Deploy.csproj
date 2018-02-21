@@ -18,34 +18,34 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
 	<CustomCommands>
-      <CustomCommands>
-        <Command>
-          <type>Custom</type>
-          <name>Build Only</name>
-          <command>msbuild /t:Build /p:Configuration=${ProjectConfigName} /p:EnableAfterBuild=false ../R7.Dnn.AddUser.sln</command>
-        </Command>
-        <Command>
-          <type>Custom</type>
-          <name>Build &amp; Deploy</name>
-           <command>msbuild /t:Build /p:Configuration=${ProjectConfigName} /p:EnableTests=false /p:EnableInstallPackage=false /p:EnableLocalDeploy=true ../R7.Dnn.AddUser.sln</command>
-        </Command>
-        <Command>
-          <type>Custom</type>
-          <name>Re-deploy</name>
-          <command>msbuild /p:Configuration=${ProjectConfigName} /p:EnableTests=false LocalDeploy.targets</command>
-        </Command>
-        <Command>
-          <type>Custom</type>
-          <name>Make Install Package</name>
-          <command>msbuild /t:Build /p:Configuration=${ProjectConfigName} /p:EnableTests=true /p:EnableInstallPackage=true /p:EnableLocalDeploy=false ../R7.Dnn.AddUser.sln</command>
-      </Command>
-      <Command>
-        <type>Custom</type>
-        <name>Run Tests</name>
-        <command>msbuild /t:Build /p:Configuration=${ProjectConfigName} /p:EnableTests=true /p:EnableInstallPackage=false /p:EnableLocalDeploy=false ../R7.Dnn.AddUser.sln</command>
-      </Command>
-    </CustomCommands>
-  </CustomCommands>
+	  <CustomCommands>
+	    <Command>
+	      <type>Custom</type>
+	      <name>Build Only</name>
+	      <command>msbuild /t:Build /p:Configuration=${ProjectConfigName} /p:EnableAfterBuild=false ../R7.Dnn.AddUser.sln</command>
+	    </Command>
+	    <Command>
+	      <type>Custom</type>
+	      <name>Build &amp; Deploy</name>
+	      <command>msbuild /t:Build /p:Configuration=${ProjectConfigName} /p:EnableTests=false /p:EnableInstallPackage=false /p:EnableLocalDeploy=true ../R7.Dnn.AddUser.sln</command>
+	    </Command>
+	    <Command>
+	      <type>Custom</type>
+	      <name>Re-deploy</name>
+	      <command>msbuild /p:Configuration=${ProjectConfigName} /p:EnableTests=false LocalDeploy.targets</command>
+	    </Command>
+	    <Command>
+	      <type>Custom</type>
+	      <name>Make Install Package</name>
+	      <command>msbuild /t:Build /p:Configuration=${ProjectConfigName} /p:EnableTests=true /p:EnableInstallPackage=true /p:EnableLocalDeploy=false ../R7.Dnn.AddUser.sln</command>
+	    </Command>
+	    <Command>
+	      <type>Custom</type>
+	      <name>Run Tests</name>
+	      <command>msbuild /t:Build /p:Configuration=${ProjectConfigName} /p:EnableTests=true /p:EnableInstallPackage=false /p:EnableLocalDeploy=false ../R7.Dnn.AddUser.sln</command>
+	    </Command>
+	  </CustomCommands>
+	</CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>

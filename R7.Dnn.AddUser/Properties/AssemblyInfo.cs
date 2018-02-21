@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration ("")]
 [assembly: AssemblyCompany ("R7.Labs")]
 [assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("Volgograd State Agricultural University")]
+[assembly: AssemblyCopyright ("Roman M. Yagodin")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
