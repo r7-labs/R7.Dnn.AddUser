@@ -31,7 +31,7 @@ using Unidecode.NET;
 namespace R7.Dnn.AddUser.Components
 {
     // TODO: Add tests
-    public class NameFormatter
+    public class NameFormatter: INameFormatter
     {
         public string FormatUserName (string userNameFormat, HumanName name,
                                string email, bool useEmailAsUserName)

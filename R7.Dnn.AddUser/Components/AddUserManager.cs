@@ -37,11 +37,11 @@ namespace R7.Dnn.AddUser.Components
 {
     class AddUserManager
     {
-        public NameFormatter NameFormatter { get; set; }
+        public INameFormatter NameFormatter { get; set; }
 
         public PasswordGenerator PasswordGenerator { get; set; }
 
-        public AddUserManager (NameFormatter nameFormatter, PasswordGenerator passwordGenerator)
+        public AddUserManager (INameFormatter nameFormatter, PasswordGenerator passwordGenerator)
         {
             NameFormatter = nameFormatter;
             PasswordGenerator = passwordGenerator;
