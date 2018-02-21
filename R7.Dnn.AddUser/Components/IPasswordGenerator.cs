@@ -1,5 +1,5 @@
 ﻿//
-// PasswordGenerator.cs
+// IPasswordGenerator.cs
 //
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -24,16 +24,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using DotNetNuke.Entities.Users;
-using DotNetNuke.Security.Membership;
-
 namespace R7.Dnn.AddUser.Components
 {
-    public class PasswordGenerator: IPasswordGenerator
+    public interface IPasswordGenerator
     {
-        public string GeneratePassword ()
-        {
-            return UserController.GeneratePassword (MembershipProviderConfig.MinPasswordLength);
-        }
+        string GeneratePassword ();
     }
 }

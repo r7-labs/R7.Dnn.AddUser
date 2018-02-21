@@ -39,9 +39,9 @@ namespace R7.Dnn.AddUser.Components
     {
         public INameFormatter NameFormatter { get; set; }
 
-        public PasswordGenerator PasswordGenerator { get; set; }
+        public IPasswordGenerator PasswordGenerator { get; set; }
 
-        public AddUserManager (INameFormatter nameFormatter, PasswordGenerator passwordGenerator)
+        public AddUserManager (INameFormatter nameFormatter, IPasswordGenerator passwordGenerator)
         {
             NameFormatter = nameFormatter;
             PasswordGenerator = passwordGenerator;
