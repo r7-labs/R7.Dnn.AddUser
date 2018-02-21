@@ -115,6 +115,7 @@
     </Compile>
     <Compile Include="Components\AddUserManager.cs" />
     <Compile Include="Models\AddUserResult.cs" />
+    <Compile Include="Components\PasswordGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="module.css" />
