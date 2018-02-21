@@ -83,9 +83,11 @@ namespace R7.Dnn.AddUser
                 if (Page.IsValid) {
                     var addUserManager = new AddUserManager ();
                     var addUserResult = addUserManager.AddUser (
-                        firstName: textFirstName.Text.Trim (),
-                        lastName: textLastName.Text.Trim (),
-                        otherName: textOtherName.Text.Trim (),
+                        new HumanName (
+                            textFirstName.Text.Trim (),
+                            textLastName.Text.Trim (),
+                            textOtherName.Text.Trim ()
+                        ),
                         settings: Settings,
                         email: textEmail.Text.Trim ().ToLower (),
                         useEmailAsUserName: PortalSettings.Registration.UseEmailAsUserName,

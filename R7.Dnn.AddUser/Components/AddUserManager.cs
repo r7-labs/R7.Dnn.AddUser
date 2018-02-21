@@ -39,15 +39,15 @@ namespace R7.Dnn.AddUser.Components
 {
     class AddUserManager
     {
-        public AddUserResult AddUser (string firstName, string lastName, string otherName,
+        public AddUserResult AddUser (HumanName name,
                                       AddUserSettings settings,
                                       string email, bool useEmailAsUserName, int portalId)
         {
-            var userName = FormatUserName (settings.UserNameFormat, firstName, lastName, otherName, email, useEmailAsUserName);
+            var userName = FormatUserName (settings.UserNameFormat, name, email, useEmailAsUserName);
             var user = new UserInfo {
-                FirstName = firstName,
-                LastName = lastName,
-                DisplayName = FormatDisplayName (GetDisplayNameFormat (settings, PortalSettings.Current), firstName, lastName, otherName, userName),
+                FirstName = name.FirstName,
+                LastName = name.LastName,
+                DisplayName = FormatDisplayName (GetDisplayNameFormat (settings, PortalSettings.Current), name, userName),
                 Email = email,
                 Username = userName,
                 PortalID = portalId
@@ -88,20 +88,19 @@ namespace R7.Dnn.AddUser.Components
         }
 
         // TODO: Add tests
-        string FormatUserName (string userNameFormat,
-                               string firstName, string lastName, string otherName,
+        string FormatUserName (string userNameFormat, HumanName name,
                                string email, bool useEmailAsUserName)
         {
             if (useEmailAsUserName) {
                 return email;
             }
 
-            var userName = userNameFormat.Replace ("[FIRSTNAME]", firstName)
-                                         .Replace ("[F]", FirstCharOrEmpty (firstName))
-                                         .Replace ("[LASTNAME]", lastName)
-                                         .Replace ("[L]", FirstCharOrEmpty (lastName))
-                                         .Replace ("[OTHERNAME]", otherName)
-                                         .Replace ("[O]", FirstCharOrEmpty (otherName))
+            var userName = userNameFormat.Replace ("[FIRSTNAME]", name.FirstName)
+                                         .Replace ("[F]", FirstCharOrEmpty (name.FirstName))
+                                         .Replace ("[LASTNAME]", name.LastName)
+                                         .Replace ("[L]", FirstCharOrEmpty (name.LastName))
+                                         .Replace ("[OTHERNAME]", name.OtherName)
+                                         .Replace ("[O]", FirstCharOrEmpty (name.OtherName))
                                          .Replace ("[EMAIL]", email.Replace ("@", " at "))
                                          .ToLower ()
                                          .Unidecode ();
@@ -118,15 +117,15 @@ namespace R7.Dnn.AddUser.Components
         }
 
         // TODO: Add tests
-        string FormatDisplayName (string displayNameFormat, string firstName, string lastName, string otherName, string userName)
+        string FormatDisplayName (string displayNameFormat, HumanName name, string userName)
         {
             var displayName = displayNameFormat.Replace ("[USERNAME]", userName)
-                                               .Replace ("[FIRSTNAME]", firstName)
-                                               .Replace ("[F]", AppendIfNotEmpty (FirstCharOrEmpty (firstName), "."))
-                                               .Replace ("[LASTNAME]", lastName)
-                                               .Replace ("[L]", AppendIfNotEmpty (FirstCharOrEmpty (lastName), "."))
-                                               .Replace ("[OTHERNAME]", otherName)
-                                               .Replace ("[O]", AppendIfNotEmpty (FirstCharOrEmpty (otherName), "."));
+                                               .Replace ("[FIRSTNAME]", name.FirstName)
+                                               .Replace ("[F]", AppendIfNotEmpty (FirstCharOrEmpty (name.FirstName), "."))
+                                               .Replace ("[LASTNAME]", name.LastName)
+                                               .Replace ("[L]", AppendIfNotEmpty (FirstCharOrEmpty (name.LastName), "."))
+                                               .Replace ("[OTHERNAME]", name.OtherName)
+                                               .Replace ("[O]", AppendIfNotEmpty (FirstCharOrEmpty (name.OtherName), "."));
 
             var displayName2 = Regex.Replace (displayName, @"\s+", " ");
             return (displayName2.Length > 128)? displayName2.Substring (0, 128) : displayName2;
