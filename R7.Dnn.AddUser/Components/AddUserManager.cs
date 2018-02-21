@@ -61,12 +61,7 @@ namespace R7.Dnn.AddUser.Components
                 PortalID = portalId
             };
 
-            var password = new PasswordSimplifier ().SimplifyPassword (
-                new PasswordGenerator ().GeneratePassword (settings.DesiredPasswordLength),
-                // TODO: Add setting for this
-                "@#$&*_"
-            );
-
+            var password = GeneratePassword (settings.DesiredPasswordLength, settings.AllowedSpecialChars);
             user.Membership.Password = password;
             
             UserCreateStatus userCreateStatus = UserController.CreateUser (ref user);
@@ -88,23 +83,31 @@ namespace R7.Dnn.AddUser.Components
             };
         }
 
+        string GetDisplayNameFormat (AddUserSettings settings, PortalSettings portalSettings)
+        {
+            return !string.IsNullOrEmpty (settings.DisplayNameFormat)
+                          ? settings.DisplayNameFormat
+                              : portalSettings.Registration.DisplayNameFormat;
+        }
+
+        string GeneratePassword (int? desiredPasswordLength, string allowedSpecialChars)
+        {
+            var password = PasswordGenerator.GeneratePassword (desiredPasswordLength);
+            return !string.IsNullOrEmpty (allowedSpecialChars)
+                          ? new PasswordSimplifier ().SimplifyPassword (password, allowedSpecialChars)
+                              : password;
+        }
+
         void AssignUserToRoles (UserInfo user, IEnumerable<int> roleIds, int portalId)
         {
             foreach (var roleId in roleIds) {
                 var role = RoleController.Instance.GetRoleById (portalId, roleId);
                 if (role != null) {
                     RoleController.Instance.AddUserRole (portalId, user.UserID, role.RoleID,
-                                                             RoleStatus.Approved, false,
-                                                             DateTime.MinValue, DateTime.MinValue);
+                                                         RoleStatus.Approved, false,
+                                                         DateTime.MinValue, DateTime.MinValue);
                 }
             }
-        }
-
-        string GetDisplayNameFormat (AddUserSettings settings, PortalSettings portalSettings)
-        {
-            return !string.IsNullOrEmpty (settings.DisplayNameFormat)
-                          ? settings.DisplayNameFormat
-                              : portalSettings.Registration.DisplayNameFormat;
         }
     }
 }

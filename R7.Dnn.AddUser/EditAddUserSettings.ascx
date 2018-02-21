@@ -19,6 +19,10 @@
             <asp:TextBox id="textDesiredPasswordLength" runat="server" />
         </div>
 		<div class="dnnFormItem">
+            <dnn:Label id="labelAllowedSpecialChars" runat="server" ControlName="textAllowedSpecialChars" />
+            <asp:TextBox id="textAllowedSpecialChars" runat="server" MaxLength="64" />
+        </div>
+		<div class="dnnFormItem">
             <dnn:Label id="labelRoles" runat="server" ControlName="textRoles" />
             <asp:TextBox id="textRoles" runat="server" />
         </div>

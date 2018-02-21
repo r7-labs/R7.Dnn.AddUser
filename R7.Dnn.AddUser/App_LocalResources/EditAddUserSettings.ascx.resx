@@ -50,6 +50,14 @@
             If specified value is less than minimal password length defined in web.config,
 		    then this setting will be ignored.</value>
     </data>
+	<data name="labelAllowedSpecialChars.Text" xml:space="preserve">
+        <value>Allowed Special Chars:</value>
+    </data>
+	<data name="labelAllowedSpecialChars.Help" xml:space="preserve">
+        <value>Enter special characters string which will be allowed in generated passwords -
+	    or leave empty to allow all special characters.
+		Characters in this string could be repeated, so they will appear more frequently.</value>
+    </data>
 	<data name="labelRoles.Text" xml:space="preserve">
         <value>Roles to Assign:</value>
     </data>

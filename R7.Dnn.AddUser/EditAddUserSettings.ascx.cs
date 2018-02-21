@@ -45,6 +45,7 @@ namespace R7.Dnn.AddUser
         protected TextBox textDisplayNameFormat;
         protected TextBox textUserNameFormat;
         protected TextBox textDesiredPasswordLength;
+        protected TextBox textAllowedSpecialChars;
         protected TextBox textRoles;
         protected TextBox textDoneUrl;
         protected CheckBox checkDoneUrlOpenInPopup;
@@ -69,6 +70,7 @@ namespace R7.Dnn.AddUser
                     textDisplayNameFormat.Text = Settings.DisplayNameFormat;
                     textUserNameFormat.Text = Settings.UserNameFormat;
                     textDesiredPasswordLength.Text = Settings.DesiredPasswordLength.ToString ();
+                    textAllowedSpecialChars.Text = Settings.AllowedSpecialChars;
                     textDoneUrl.Text = Settings.DoneUrl;
                     checkDoneUrlOpenInPopup.Checked = Settings.DoneUrlOpenInPopup;
                     textRoles.Text = string.Join (
@@ -89,6 +91,7 @@ namespace R7.Dnn.AddUser
                 Settings.DisplayNameFormat = textDisplayNameFormat.Text.Trim ();
                 Settings.UserNameFormat = textUserNameFormat.Text.Trim ();
                 Settings.DesiredPasswordLength = TypeUtils.ParseToNullable<int> (textDesiredPasswordLength.Text);
+                Settings.AllowedSpecialChars = textAllowedSpecialChars.Text.Trim ();
                 Settings.DoneUrl = textDoneUrl.Text.Trim ();
                 Settings.DoneUrlOpenInPopup = checkDoneUrlOpenInPopup.Checked;
                 Settings.Roles = string.Join (

@@ -46,6 +46,9 @@ namespace R7.Dnn.AddUser.Models
         public int? DesiredPasswordLength { get; set; }
 
         [ModuleSetting (Prefix = "AddUser_")]
+        public string AllowedSpecialChars { get; set; }
+
+        [ModuleSetting (Prefix = "AddUser_")]
         public string DoneUrl { get; set; }
 
         [ModuleSetting (Prefix = "AddUser_")]
