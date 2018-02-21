@@ -26,8 +26,9 @@
     </data>
     <data name="labelDisplayNameFormat.Help" xml:space="preserve">
         <value>Format of the display name generated for user.
-		Template variables for name parts are [FIRSTNAME], [LASTNAME], [OTHERNAME]
-		and also [F], [L], [O] for first letters only.</value>
+		Template variables for name parts are [FIRSTNAME], [LASTNAME], [OTHERNAME], [USERNAME]
+		and also [F], [L], [O] for first letters only. If format not specified, 
+		module will try to use display name format defined in the site settings.</value>
     </data>
 	<data name="labelUserNameFormat.Text" xml:space="preserve">
         <value>Username Format:</value>

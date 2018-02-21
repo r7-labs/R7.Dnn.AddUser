@@ -26,8 +26,9 @@
     </data>
     <data name="labelDisplayNameFormat.Help" xml:space="preserve">
         <value>Формат для генерации отображаемого имени пользователя.
-        Переменные шаблона для частей имени: [FIRSTNAME], [LASTNAME], [OTHERNAME],
-        а также [F], [L], [O] для первых букв.</value>
+        Переменные шаблона для частей имени: [FIRSTNAME], [LASTNAME], [OTHERNAME], [USERNAME]
+        а также [F], [L], [O] для первых букв. Если формат не указан, то модуль будет пытаться
+		использовать формат отображаемого имени, заданный в настройках сайта.</value>
     </data>
 	<data name="labelUserNameFormat.Text" xml:space="preserve">
         <value>Формат имени пользователя:</value>

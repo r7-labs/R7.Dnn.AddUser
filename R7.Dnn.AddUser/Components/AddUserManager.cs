@@ -24,6 +24,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using DotNetNuke.Entities.Portals;
 using DotNetNuke.Entities.Users;
 using DotNetNuke.Security.Membership;
 using DotNetNuke.Security.Roles;
@@ -39,12 +40,13 @@ namespace R7.Dnn.AddUser.Components
                                       AddUserSettings settings,
                                       string email, bool useEmailAsUserName, int portalId)
         {
+            var userName = FormatUserName (settings.UserNameFormat, firstName, lastName, otherName, email, useEmailAsUserName);
             var user = new UserInfo {
                 FirstName = firstName,
                 LastName = lastName,
-                DisplayName = FormatDisplayName (settings.DisplayNameFormat, firstName, lastName, otherName),
+                DisplayName = FormatDisplayName (GetDisplayNameFormat (settings, PortalSettings.Current), firstName, lastName, otherName, userName),
                 Email = email,
-                Username = FormatUserName (settings.UserNameFormat, firstName, lastName, otherName, email, useEmailAsUserName),
+                Username = userName,
                 PortalID = portalId
             };
 
@@ -110,10 +112,18 @@ namespace R7.Dnn.AddUser.Components
             return (userName2.Length > 100)? userName2.Substring (0, 100) : userName2;
         }
 
-        // TODO: Add tests
-        string FormatDisplayName (string displayNameFormat, string firstName, string lastName, string otherName)
+        string GetDisplayNameFormat (AddUserSettings settings, PortalSettings portalSettings)
         {
-            var displayName = displayNameFormat.Replace ("[FIRSTNAME]", firstName)
+            return !string.IsNullOrEmpty (settings.DisplayNameFormat)
+                          ? settings.DisplayNameFormat
+                              : portalSettings.Registration.DisplayNameFormat;
+        }
+
+        // TODO: Add tests
+        string FormatDisplayName (string displayNameFormat, string firstName, string lastName, string otherName, string userName)
+        {
+            var displayName = displayNameFormat.Replace ("[USERNAME]", userName)
+                                               .Replace ("[FIRSTNAME]", firstName)
                                                .Replace ("[F]", AppendIfNotEmpty (FirstCharOrEmpty (firstName), "."))
                                                .Replace ("[LASTNAME]", lastName)
                                                .Replace ("[L]", AppendIfNotEmpty (FirstCharOrEmpty (lastName), "."))
