@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Dnn.AddUser", "R7.Dnn.Ad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deploy", "Deploy\Deploy.csproj", "{FE7520D2-43B5-4EBC-BA61-025550EDC967}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R7.Dnn.AddUser.Tests", "R7.Dnn.AddUser.Tests\R7.Dnn.AddUser.Tests.csproj", "{BD70A929-1312-4F41-911A-5460E3355342}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{FE7520D2-43B5-4EBC-BA61-025550EDC967}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE7520D2-43B5-4EBC-BA61-025550EDC967}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE7520D2-43B5-4EBC-BA61-025550EDC967}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD70A929-1312-4F41-911A-5460E3355342}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD70A929-1312-4F41-911A-5460E3355342}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD70A929-1312-4F41-911A-5460E3355342}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD70A929-1312-4F41-911A-5460E3355342}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
