@@ -1,5 +1,5 @@
 ﻿//
-// Test.cs
+// PasswordSimplifierTests.cs
 //
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
@@ -24,16 +24,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-using System;
+using R7.Dnn.AddUser.Components;
 using Xunit;
 
-namespace R7.Dnn.AddUser.Tests
+namespace R7.Dnn.AddUser.Tests.Components
 {
-    public class Test
+    public class PasswordSimplifierTests
     {
-        [Fact ()]
-        public void TestMethod ()
+        [Fact]
+        public void PasswordSimplifierTest ()
         {
+            var passwordSimplifier = new PasswordSimplifier ();
+            Assert.Equal ("P___w0rd", passwordSimplifier.SimplifyPassword ("P@$$w0rd", "_"));
         }
     }
 }

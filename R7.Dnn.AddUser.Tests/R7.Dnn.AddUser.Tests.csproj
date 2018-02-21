@@ -40,10 +40,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Test.cs" />
+    <Compile Include="Components\PasswordSimplifierTests.cs" />
+    <Compile Include="Components\NameFormatterTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\R7.Dnn.AddUser\R7.Dnn.AddUser.csproj">
+      <Project>{463B1FA2-490E-4AFB-80F9-DD988AC64B88}</Project>
+      <Name>R7.Dnn.AddUser</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
