@@ -67,6 +67,8 @@ namespace R7.Dnn.AddUser.Components
             UserCreateStatus userCreateStatus = UserController.CreateUser (ref user);
 
             if (userCreateStatus == UserCreateStatus.Success) {
+                UpdateUserProfile (user, name, portalId);
+            
                 try {
                     AssignUserToRoles (user, settings.RoleIds, portalId);
                 }
@@ -81,6 +83,14 @@ namespace R7.Dnn.AddUser.Components
                 User = user,
                 Password = password
             };
+        }
+
+        void UpdateUserProfile (UserInfo user, HumanName name, int portalId)
+        {
+            user.Profile.InitialiseProfile (portalId);
+            user.Profile.FirstName = name.FirstName;
+            user.Profile.LastName = name.LastName;
+            UserController.UpdateUser (portalId, user);
         }
 
         string GetDisplayNameFormat (AddUserSettings settings, PortalSettings portalSettings)
