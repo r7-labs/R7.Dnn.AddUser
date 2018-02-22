@@ -50,7 +50,7 @@ namespace R7.Dnn.AddUser.Components
                                          .ToLower ()
                                          .Unidecode ();
 
-            var userName2 = Regex.Replace (Regex.Replace (userName, @"[^a-z0-9]", "_"), @"_+", "_").Trim ('_');
+            var userName2 = Regex.Replace (Regex.Replace (userName, @"[^a-z0-9']", "_"), @"_+", "_").Trim ('_');
             return (userName2.Length > 100)? userName2.Substring (0, 100) : userName2;
         }
 
