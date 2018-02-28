@@ -25,6 +25,7 @@
 // THE SOFTWARE.
 
 using System;
+using System.Collections.Generic;
 
 namespace R7.Dnn.AddUser.Components
 {
@@ -47,6 +48,52 @@ namespace R7.Dnn.AddUser.Components
             }
 
             return simplePassword;
+        }
+
+        const string alphanumerics = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        const string specials = "_!?@#$%^&+-=*()[]{}<>.,:;~\\|/";
+
+        // TODO: Add test
+        public string SimplifyPassword (string password, int minSpecialChars)
+        {
+            var rnd = new Random ();
+            rnd.Next ();
+
+            var specialCharPositions = new List<int> ();
+            for (var i = 0; i < password.Length; i++) {
+                if (!char.IsLetterOrDigit (password [i])) {
+                    specialCharPositions.Add (i);
+                }
+            }
+
+            var simplePassword = password;
+
+            if (specialCharPositions.Count > minSpecialChars) {
+                for (var i = 0; specialCharPositions.Count > minSpecialChars; i++) {
+                    var position = specialCharPositions [rnd.Next (specialCharPositions.Count)];
+                    simplePassword = ReplaceChar (simplePassword, position, alphanumerics [rnd.Next (alphanumerics.Length)]);
+                }
+            }
+            else if (specialCharPositions.Count < minSpecialChars) {
+                var numCharsToAdd = minSpecialChars - specialCharPositions.Count;
+                while (numCharsToAdd > 0) {
+                    var position = rnd.Next (simplePassword.Length);
+                    if (char.IsLetterOrDigit (simplePassword [position])) {
+                        simplePassword = ReplaceChar (simplePassword, position, specials [rnd.Next (specials.Length)]);
+                        numCharsToAdd--;
+                    }
+                }
+            }
+
+            return simplePassword;
+        }
+
+        string ReplaceChar (string source, int position, char c)
+        {
+            var charArray = source.ToCharArray ();
+            charArray [position] = c;
+            return charArray.ToString ();
         }
     }
 }

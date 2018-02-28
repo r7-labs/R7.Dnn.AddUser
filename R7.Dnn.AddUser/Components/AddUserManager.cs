@@ -61,7 +61,10 @@ namespace R7.Dnn.AddUser.Components
                 PortalID = portalId
             };
 
-            var password = GeneratePassword (settings.DesiredPasswordLength, settings.AllowedSpecialChars);
+            var password = GeneratePassword (settings.DesiredPasswordLength,
+                                             MembershipProviderConfig.MinNonAlphanumericCharacters,
+                                             settings.AllowedSpecialChars);
+            
             user.Membership.Password = password;
             
             UserCreateStatus userCreateStatus = UserController.CreateUser (ref user);
@@ -100,12 +103,20 @@ namespace R7.Dnn.AddUser.Components
                               : portalSettings.Registration.DisplayNameFormat;
         }
 
-        string GeneratePassword (int? desiredPasswordLength, string allowedSpecialChars)
+        string GeneratePassword (int? desiredPasswordLength, int? minSpecialChars, string allowedSpecialChars)
         {
             var password = PasswordGenerator.GeneratePassword (desiredPasswordLength);
-            return !string.IsNullOrEmpty (allowedSpecialChars)
-                          ? new PasswordSimplifier ().SimplifyPassword (password, allowedSpecialChars)
-                              : password;
+            var passwordSimplifier = new PasswordSimplifier ();
+
+            if (!string.IsNullOrEmpty (allowedSpecialChars)) {
+                password = passwordSimplifier.SimplifyPassword (password, allowedSpecialChars);
+            }
+
+            if (minSpecialChars != null) {
+                password = passwordSimplifier.SimplifyPassword (password, minSpecialChars.Value);
+            }
+
+            return password;
         }
 
         void AssignUserToRoles (UserInfo user, IEnumerable<int> roleIds, int portalId)
