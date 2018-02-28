@@ -32,7 +32,7 @@ namespace R7.Dnn.AddUser.Tests.Components
     public class PasswordSimplifierTests
     {
         [Fact]
-        public void PasswordSimplifierTest ()
+        public void ReduceVarietyOfSpecialCharsTest ()
         {
             var passwordSimplifier = new PasswordSimplifier ();
             Assert.Equal ("P___w0rd", passwordSimplifier.ReduceVarietyOfSpecialChars ("P@$$w0rd", "_"));

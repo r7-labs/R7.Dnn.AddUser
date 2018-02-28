@@ -31,7 +31,6 @@ namespace R7.Dnn.AddUser.Components
 {
     public class PasswordSimplifier
     {
-        // TODO: Add test
         public string ReduceVarietyOfSpecialChars (string password, string allowedSpecialChars)
         {
             var rnd = new Random ();
