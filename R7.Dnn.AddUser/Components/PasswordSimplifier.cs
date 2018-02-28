@@ -53,9 +53,14 @@ namespace R7.Dnn.AddUser.Components
 
         const string specials = "_!?@#$%^&+-=*()[]{}<>.,:;~\\|/";
 
-        // TODO: Add test
         public string MinifyNumberOfSpecialChars (string password, int minSpecialChars)
         {
+            if (password.Length < minSpecialChars) {
+                throw new ArgumentException (
+                    "Password length must be greater or equal than min. special characters count."
+                );
+            }
+
             var rnd = new Random ();
             rnd.Next ();
 
@@ -69,13 +74,14 @@ namespace R7.Dnn.AddUser.Components
             var simplePassword = password;
 
             if (specialCharPositions.Count > minSpecialChars) {
-                for (var i = 0; specialCharPositions.Count > minSpecialChars; i++) {
-                    var position = specialCharPositions [rnd.Next (specialCharPositions.Count)];
-                    simplePassword = ReplaceChar (simplePassword, position, alphanumerics [rnd.Next (alphanumerics.Length)]);
+                while (specialCharPositions.Count > minSpecialChars && specialCharPositions.Count > 0) {
+                    var positionIndex = rnd.Next (specialCharPositions.Count);
+                    simplePassword = ReplaceChar (simplePassword, specialCharPositions [positionIndex], alphanumerics [rnd.Next (alphanumerics.Length)]);
+                    specialCharPositions.RemoveAt (positionIndex);
                 }
             }
             else if (specialCharPositions.Count < minSpecialChars) {
-                var numCharsToAdd = minSpecialChars - specialCharPositions.Count;
+                var numCharsToAdd = Math.Min (minSpecialChars - specialCharPositions.Count, simplePassword.Length - specialCharPositions.Count);
                 while (numCharsToAdd > 0) {
                     var position = rnd.Next (simplePassword.Length);
                     if (char.IsLetterOrDigit (simplePassword [position])) {
@@ -92,7 +98,7 @@ namespace R7.Dnn.AddUser.Components
         {
             var charArray = source.ToCharArray ();
             charArray [position] = c;
-            return charArray.ToString ();
+            return new string (charArray);
         }
     }
 }
