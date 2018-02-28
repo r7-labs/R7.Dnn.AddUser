@@ -113,7 +113,6 @@ namespace R7.Dnn.AddUser
                             linkDone.NavigateUrl = Globals.NavigateURL ();
                         }
                     }
-                    // TODO: Add custom messages for duplicated display names
                     else if (addUserResult.UserCreateStatus == UserCreateStatus.UsernameAlreadyExists) {
                         this.Message (string.Format (
                             LocalizeString ("UserCreateStatus_UsernameAlreadyExists.Text"), addUserResult.User.Username),
