@@ -1,4 +1,4 @@
-﻿//
+//
 // PasswordSimplifierTests.cs
 //
 // Author:
@@ -35,7 +35,7 @@ namespace R7.Dnn.AddUser.Tests.Components
         public void PasswordSimplifierTest ()
         {
             var passwordSimplifier = new PasswordSimplifier ();
-            Assert.Equal ("P___w0rd", passwordSimplifier.SimplifyPassword ("P@$$w0rd", "_"));
+            Assert.Equal ("P___w0rd", passwordSimplifier.ReduceVarietyOfSpecialChars ("P@$$w0rd", "_"));
         }
     }
 }

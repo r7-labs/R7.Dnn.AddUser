@@ -32,7 +32,7 @@ namespace R7.Dnn.AddUser.Components
     public class PasswordSimplifier
     {
         // TODO: Add test
-        public string SimplifyPassword (string password, string allowedSpecialChars)
+        public string ReduceVarietyOfSpecialChars (string password, string allowedSpecialChars)
         {
             var rnd = new Random ();
             rnd.Next ();
@@ -55,7 +55,7 @@ namespace R7.Dnn.AddUser.Components
         const string specials = "_!?@#$%^&+-=*()[]{}<>.,:;~\\|/";
 
         // TODO: Add test
-        public string SimplifyPassword (string password, int minSpecialChars)
+        public string MinifyNumberOfSpecialChars (string password, int minSpecialChars)
         {
             var rnd = new Random ();
             rnd.Next ();

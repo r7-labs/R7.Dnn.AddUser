@@ -1,4 +1,4 @@
-﻿//
+//
 // AddUserManager.cs
 //
 // Author:
@@ -109,11 +109,11 @@ namespace R7.Dnn.AddUser.Components
             var passwordSimplifier = new PasswordSimplifier ();
 
             if (!string.IsNullOrEmpty (allowedSpecialChars)) {
-                password = passwordSimplifier.SimplifyPassword (password, allowedSpecialChars);
+                password = passwordSimplifier.ReduceVarietyOfSpecialChars (password, allowedSpecialChars);
             }
 
             if (minSpecialChars != null) {
-                password = passwordSimplifier.SimplifyPassword (password, minSpecialChars.Value);
+                password = passwordSimplifier.MinifyNumberOfSpecialChars (password, minSpecialChars.Value);
             }
 
             return password;
