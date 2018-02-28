@@ -140,7 +140,6 @@
     <None Include="App_LocalResources\EditAddUserSettings.ascx.resx" />
     <None Include="App_LocalResources\EditAddUserSettings.ascx.ru-RU.resx" />
     <None Include="R7.Dnn.AddUser.dnn" />
-    <None Include="SETUP.md" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
