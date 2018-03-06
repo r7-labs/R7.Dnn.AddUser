@@ -68,9 +68,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dummy.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\R7.Dnn.AddUser\R7.Dnn.AddUser.csproj">
       <Project>{463B1FA2-490E-4AFB-80F9-DD988AC64B88}</Project>
       <Name>R7.Dnn.AddUser</Name>
