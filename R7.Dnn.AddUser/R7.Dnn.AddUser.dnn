@@ -5,10 +5,10 @@
             <friendlyName>R7.Dnn.AddUser</friendlyName>
             <description>Module which allow non-admins to create new users.</description>
             <owner>
-                <name>Roman M. Yagodin</name>
-                <organization>R7.Labs</organization>
+                <name>VolSAU</name>
+                <organization>Volgograd State Argicultural University</organization>
                 <url>https://github.com/volgau/R7.Dnn.AddUser</url>
-                <email>roman.yagodin@gmail.com</email>
+                <email />
             </owner>
             <license src="license.htm" />
             <releaseNotes src="releaseNotes.htm" />

@@ -7,9 +7,9 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyTitle ("R7.Dnn.AddUser")]
 [assembly: AssemblyDescription ("")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("R7.Labs")]
+[assembly: AssemblyCompany ("Volgograd State Argicultural University")]
 [assembly: AssemblyProduct ("")]
-[assembly: AssemblyCopyright ("Roman M. Yagodin")]
+[assembly: AssemblyCopyright ("Volgograd State Argicultural University")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 
