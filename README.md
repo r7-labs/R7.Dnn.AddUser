@@ -1,8 +1,6 @@
-# R7.Dnn.AddUser
+# About R7.Dnn.AddUser
 
-DNN Platfrom module which allow non-admins to create new users.
-
-## Main features
+The *R7.Dnn.AddUser* is a module for the DNN platform which allows non-admins to create new users.
 
 With *R7.Dnn.AddUser* module you can:
 
@@ -12,5 +10,3 @@ With *R7.Dnn.AddUser* module you can:
 - Control username generation with a format string. The "Email as Username" DNN setting is respected.
 - Control password length while ensuring that minimum length from `web.config` is respected.
 - Control password complexity by limiting variety of special characters used.
-
-Currently usernames are transliterated using Unidecode.NET.
