@@ -81,9 +81,6 @@
       <HintPath>..\packages\NGettext.0.6.3\lib\net45\NGettext.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Unidecode.NET">
-      <HintPath>..\packages\Unidecode.NET.1.1.1\lib\net45\Unidecode.NET.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -98,6 +95,9 @@
     </Reference>
     <Reference Include="R7.Dnn.Extensions">
       <HintPath>..\packages\R7.Dnn.Extensions.0.13.0\lib\net45\R7.Dnn.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unidecode.NET">
+      <HintPath>..\packages\Unidecode.NET.1.3.0\lib\net45\Unidecode.NET.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
