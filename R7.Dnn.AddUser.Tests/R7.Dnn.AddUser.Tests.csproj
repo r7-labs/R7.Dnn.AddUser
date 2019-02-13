@@ -40,10 +40,14 @@
     <Reference Include="xunit.execution.desktop">
       <HintPath>..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
     </Reference>
+    <Reference Include="Unidecode.NET">
+      <HintPath>..\packages\Unidecode.NET.1.3.0\lib\net45\Unidecode.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\PasswordSimplifierTests.cs" />
     <Compile Include="Components\NameFormatterTests.cs" />
+    <Compile Include="Components\UnidecodeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
