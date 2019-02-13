@@ -4,7 +4,7 @@
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2018 Roman M. Yagodin
+// Copyright (c) 2018-2019 Roman M. Yagodin
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,7 @@ using DotNetNuke.Security.Roles;
 using DotNetNuke.Services.Exceptions;
 using R7.Dnn.AddUser.Models;
 using R7.Dnn.Extensions.Modules;
-using R7.Dnn.Extensions.Utilities;
+using R7.Dnn.Extensions.Text;
 
 namespace R7.Dnn.AddUser
 {
@@ -90,7 +90,7 @@ namespace R7.Dnn.AddUser
             try {
                 Settings.DisplayNameFormat = textDisplayNameFormat.Text.Trim ();
                 Settings.UserNameFormat = textUserNameFormat.Text.Trim ();
-                Settings.DesiredPasswordLength = TypeUtils.ParseToNullable<int> (textDesiredPasswordLength.Text);
+                Settings.DesiredPasswordLength = ParseHelper.ParseToNullable<int> (textDesiredPasswordLength.Text);
                 Settings.AllowedSpecialChars = textAllowedSpecialChars.Text.Trim ();
                 Settings.DoneUrl = textDoneUrl.Text.Trim ();
                 Settings.DoneUrlOpenInPopup = checkDoneUrlOpenInPopup.Checked;

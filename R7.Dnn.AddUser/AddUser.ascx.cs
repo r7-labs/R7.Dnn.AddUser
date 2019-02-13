@@ -4,7 +4,7 @@
 // Author:
 //       Roman M. Yagodin <roman.yagodin@gmail.com>
 //
-// Copyright (c) 2018 Roman M. Yagodin
+// Copyright (c) 2018-2019 Roman M. Yagodin
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,6 @@ using DotNetNuke.Security.Membership;
 using DotNetNuke.Services.Exceptions;
 using R7.Dnn.AddUser.Components;
 using R7.Dnn.AddUser.Models;
-using R7.Dnn.Extensions.ModuleExtensions;
 using R7.Dnn.Extensions.Modules;
 
 namespace R7.Dnn.AddUser
